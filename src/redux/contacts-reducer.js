@@ -44,6 +44,7 @@ const contactsReducer = (state = initialState, action) => {
         }
         case DELETE_CONTACT: {
             state.buttonActive = false;
+
             return {...state, contacts: state.contacts.filter(contact => contact.id !== action.contactId)}
         }
         case CHANGE_BUTTONS_STATE: {

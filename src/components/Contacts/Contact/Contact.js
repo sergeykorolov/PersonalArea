@@ -6,13 +6,13 @@ const Contact = (props) => {
     let [editMode, setEditMode] = useState(false);
 
     const onSubmit = (formData) => {
-        console.log(formData);
         props.editContact(formData, props.contact.id);
         setEditMode(false);
     }
 
     const deleteContact = () => {
         props.deleteContact(props.contact.id);
+        props.deleteSearchContact(props.contact.id);
     }
 
     const goToEditMode = () => {

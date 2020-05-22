@@ -1,5 +1,5 @@
 import {connect} from "react-redux";
-import {addContact, changeButtonsState, deleteContact, editContact} from "../../redux/contacts-reducer";
+import {addContact, changeButtonsState, deleteContact, editContact, onFindContact} from "../../redux/contacts-reducer";
 import React from "react";
 import Contacts from "./Contacts";
 
@@ -26,5 +26,5 @@ export default connect(mapStateToProps, {
     addContact,
     editContact,
     deleteContact,
-    changeButtonsState
+    changeButtonsState,
 })(ContactsContainer);
