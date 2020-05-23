@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import ContactReduxForm from "./ContactForm";
+import style from "./Contact.module.css";
 
 const Contact = (props) => {
 
@@ -21,7 +22,7 @@ const Contact = (props) => {
     }
 
     return (
-        <div>
+        <div className={style.contact}>
             {editMode || !props.contact.name
                 ? <div>
                     <ContactReduxForm initialValues={props.contact}
@@ -30,7 +31,7 @@ const Contact = (props) => {
                 </div>
                 : <div>
                     <div>
-                        <button onClick={goToEditMode} disabled={props.buttonActive}>Edit</button>
+                        <button className={style.edit} onClick={goToEditMode} disabled={props.buttonActive}>Edit</button>
                         <button onClick={deleteContact} disabled={props.buttonActive}>Delete</button>
                     </div>
                     <div>

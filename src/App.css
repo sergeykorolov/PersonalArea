@@ -32,3 +32,11 @@ button[disabled] {
     background: #ddd;
 }
 
+input {
+    border-radius: 2px;
+    border: 1px solid #ddd;
+    outline: none;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+

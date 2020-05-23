@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import Contact from "./Contact/Contact";
 import style from "./Contacts.module.css";
+import {Redirect} from "react-router-dom";
 
 const Contacts = (props) => {
 
@@ -28,11 +29,19 @@ const Contacts = (props) => {
         }
     }
 
+    if (!props.isAuth){
+        return <Redirect to={"/login"}/>
+    }
+
     return (
         <div>
-            <h3>Contacts:</h3>
-            <div><input disabled={props.buttonActive} onChange={event => findContacts(event)} type="text"/>search</div>
-            <button onClick={props.addContact} disabled={props.buttonActive || searchMode}>Add contact</button>
+            <h3>Contacts</h3>
+            <div className={style.search}>Search:
+                <input disabled={props.buttonActive}
+                       placeholder={"search by name"}
+                       onChange={event => findContacts(event)}
+                       type="text"/>
+            </div>
             <div className={style.contacts}>
                 {!contactsForShow.length && searchMode
                     ? <div>Contacts not found</div>
@@ -45,6 +54,7 @@ const Contacts = (props) => {
                                                               deleteSearchContact={deleteSearchContact}/>)
                 }
             </div>
+            <button className={style.add} onClick={props.addContact} disabled={props.buttonActive || searchMode}>Add contact</button>
         </div>
     )
 }

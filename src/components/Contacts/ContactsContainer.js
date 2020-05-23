@@ -1,5 +1,5 @@
 import {connect} from "react-redux";
-import {addContact, changeButtonsState, deleteContact, editContact, onFindContact} from "../../redux/contacts-reducer";
+import {addContact, changeButtonsState, deleteContact, editContact} from "../../redux/contacts-reducer";
 import React from "react";
 import Contacts from "./Contacts";
 
@@ -12,7 +12,8 @@ const ContactsContainer = (props) => {
                       deleteContact={props.deleteContact}
                       editContact={props.editContact}
                       buttonActive={props.buttonActive}
-                      changeButtonsState={props.changeButtonsState}/>
+                      changeButtonsState={props.changeButtonsState}
+                      isAuth={props.isAuth}/>
         </div>
     )
 }
@@ -20,6 +21,7 @@ const ContactsContainer = (props) => {
 let mapStateToProps = (state) => ({
     contacts: state.contactsPage.contacts,
     buttonActive: state.contactsPage.buttonActive,
+    isAuth: state.auth.isAuth
 })
 
 export default connect(mapStateToProps, {

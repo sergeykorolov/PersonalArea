@@ -2,6 +2,7 @@
     grid-area: header;
     color: white;
     background-color: #3d4b57;
+    height: 70px;
 }
 
 .logo {
