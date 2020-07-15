@@ -17,6 +17,11 @@ const LoginForm = (props) => {
             <div>
                 <button>Login</button>
             </div>
+            <div className={style.hint}>
+                <div><b>данные для входа:</b></div>
+                <div>Email: <i>free@samuraijs.com</i></div>
+                <div>Password: <i>free</i></div>
+            </div>
         </form>
     )
 }
